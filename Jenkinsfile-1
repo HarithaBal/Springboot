@@ -1,16 +1,16 @@
-pipeline {
-  agent any
-  options {
-    buildDiscarder(logRotator(numToKeepStr: '5'))
+node {
+  stage('Clone the Git') {
+    git 'https://github.com/HarithaBal/Springboot.git'
   }
-  stages {
-    stage('Scan') {
-      steps {
-        withSonarQubeEnv(installationName: 'Jenkins-sonarqube- integration') { 
-          sh './mvnw clean org.sonarsource.scanner.maven:sonar-maven-plugin:3.9.0.2155:sonar'
-        }
-      }
+  stage('SonarQube analysis') {
+    def scannerHome = tool 'sonarqube';
+    withSonarQubeEnv('sonarqube') {
+      sh "${scannerHome}/bin/sonar-scanner \
+      -D sonar.login=admin \
+      -D sonar.password=admin \
+      -D sonar.projectKey=sonarqubetest \
+      -D sonar.exclusions=vendor/**,resources/**,**/*.java \
+      -D sonar.host.url=http://18.223.185.57:9000/"
     }
   }
 }
-

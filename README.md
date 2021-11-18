@@ -42,15 +42,14 @@ Configuring Apache Maven Environment
 ------------------
 
  1 cd /etc/profile.d/
- 1 sudo nano maven.sh
-###################################################
-# Apache Maven Environment Variables
-# MAVEN_HOME for Maven 1 - M2_HOME for Maven 2
-export JAVA_HOME=/usr/lib/jvm/openjdk-11   
-export M2_HOME=/opt/apache-maven
-export MAVEN_HOME=/opt/apache-maven
-export PATH=${M2_HOME}/bin:${PATH}
-###################################################
+ 2 sudo nano maven.sh
+     # Apache Maven Environment Variables
+     # MAVEN_HOME for Maven 1 - M2_HOME for Maven 2
+     export JAVA_HOME=/usr/lib/jvm/openjdk-11   
+     export M2_HOME=/opt/apache-maven
+     export MAVEN_HOME=/opt/apache-maven
+     export PATH=${M2_HOME}/bin:${PATH}
+
 3 sudo chmod +x maven.sh
 4 sudo source maven.sh
 Inorder to test maven 

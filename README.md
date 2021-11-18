@@ -25,33 +25,38 @@ Install SonarQube :
     17  sudo systemctl start sonar
   
 Install Jenkins :
+
+
         1 wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
         2 sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
         3 sudo apt-get update
         4 sudo apt-get install jenkins
         5 sudo systemctl status jenkins
-
+        
 Install Maven :
+
+
         1 cd /opt/
         2 sudo wget https://dlcdn.apache.org/maven/maven-3/3.8.3/binaries/apache-maven-3.8.3-bin.tar.gz
         3 sudo tar -xf apache-maven-3.8.3-bin.tar.gz
         4 sudo mv apache-maven-3.8.3/ apache-maven/
         5 sudo update-alternatives --install /usr/bin/mvn maven /opt/apache-maven/bin/mvn 1001
 
-Configuring Apache Maven Environment
-------------------
+        Configuring Apache Maven Environment
+               ------------------
 
- 1 cd /etc/profile.d/
- 2 sudo nano maven.sh
-     # Apache Maven Environment Variables
-     # MAVEN_HOME for Maven 1 - M2_HOME for Maven 2
-     export JAVA_HOME=/usr/lib/jvm/openjdk-11   
-     export M2_HOME=/opt/apache-maven
-     export MAVEN_HOME=/opt/apache-maven
-     export PATH=${M2_HOME}/bin:${PATH}
-
-3 sudo chmod +x maven.sh
-4 sudo source maven.sh
+        1 cd /etc/profile.d/
+        2 sudo nano maven.sh
+           # Apache Maven Environment Variables
+           # MAVEN_HOME for Maven 1 - M2_HOME for Maven 2
+           export JAVA_HOME=/usr/lib/jvm/openjdk-11   
+           export M2_HOME=/opt/apache-maven
+           export MAVEN_HOME=/opt/apache-maven
+           export PATH=${M2_HOME}/bin:${PATH}
+       3 sudo chmod +x maven.sh
+       4 sudo source maven.sh
+       
+       
 Inorder to test maven 
 Go to maven official site => use=> 5min project 	
  5 mvn --version

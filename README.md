@@ -15,14 +15,14 @@ Install SonarQube :
     7  createuser sonar
     8  sudo unzip sonarqube*.zip -d /opt
     9  cd /opt
-   10  ls
-   11  cd
-   12  sudo vi /etc/systemd/system/sonar.service
-   13  sudo vi /etc/sysctl.conf
-   14  sudo vi /etc/security/limits.conf
-   15  sudo sysctl -p
-   16  sudo apt update
-   17  sudo systemctl start sonar
+    10  ls
+    11  cd
+    12  sudo vi /etc/systemd/system/sonar.service
+    13  sudo vi /etc/sysctl.conf
+    14  sudo vi /etc/security/limits.conf
+    15  sudo sysctl -p
+    16  sudo apt update
+    17  sudo systemctl start sonar
   
 Install Jenkins :
     wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
@@ -43,8 +43,8 @@ sudo update-alternatives --install /usr/bin/mvn maven /opt/apache-maven/bin/mvn 
 Configuring Apache Maven Environment
 ------------------
 
-$ cd /etc/profile.d/
-$ sudo nano maven.sh
+ cd /etc/profile.d/
+ sudo nano maven.sh
 ###################################################
 # Apache Maven Environment Variables
 # MAVEN_HOME for Maven 1 - M2_HOME for Maven 2

@@ -25,26 +25,25 @@ Install SonarQube :
     17  sudo systemctl start sonar
   
 Install Jenkins :
-    wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
-    sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
-    sudo apt-get update
-    sudo apt-get install jenkins
-    sudo systemctl status jenkins
+   1 wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
+   2 sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
+   3 sudo apt-get update
+   4 sudo apt-get install jenkins
+   5 sudo systemctl status jenkins
 
 Install Maven :
-    cd /opt/
-sudo wget https://dlcdn.apache.org/maven/maven-3/3.8.3/binaries/apache-maven-3.8.3-bin.tar.gz
-
-sudo tar -xf apache-maven-3.8.3-bin.tar.gz
-sudo mv apache-maven-3.8.3/ apache-maven/
+   1 cd /opt/
+   2 sudo wget https://dlcdn.apache.org/maven/maven-3/3.8.3/binaries/apache-maven-3.8.3-bin.tar.gz
+   3 sudo tar -xf apache-maven-3.8.3-bin.tar.gz
+   4 sudo mv apache-maven-3.8.3/ apache-maven/
 
 sudo update-alternatives --install /usr/bin/mvn maven /opt/apache-maven/bin/mvn 1001
 
 Configuring Apache Maven Environment
 ------------------
 
- cd /etc/profile.d/
- sudo nano maven.sh
+ 1 cd /etc/profile.d/
+ 1 sudo nano maven.sh
 ###################################################
 # Apache Maven Environment Variables
 # MAVEN_HOME for Maven 1 - M2_HOME for Maven 2
@@ -53,19 +52,19 @@ export M2_HOME=/opt/apache-maven
 export MAVEN_HOME=/opt/apache-maven
 export PATH=${M2_HOME}/bin:${PATH}
 ###################################################
-sudo chmod +x maven.sh
-sudo source maven.sh
+3 sudo chmod +x maven.sh
+4 sudo source maven.sh
 Inorder to test maven 
 Go to maven official site => use=> 5min project 	
- mvn --version
-     cd
-     mkdir mvn
-     cd mvn
-     mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=my-app -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false
-     cd my-app
-     ls 
-     nano pom.xml 
-     mvn package
+ 5 mvn --version
+ 6 cd
+ 7 mkdir mvn
+ 8 cd mvn
+ 9 mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=my-app -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false
+ 10 cd my-app
+ 11 ls 
+ 12 nano pom.xml 
+ 13 mvn package
      
 After this login to jenkins => manage pluggin => sonar scanner
     Then go to Global Tool configuration => SonarQubeScanner =>Add SonarQubeScanner=> add sonarQubeScannerName => Add SONAR_RUNNER_HOME =>/opt/sonarqube/bin =>apply and save

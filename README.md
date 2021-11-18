@@ -6,7 +6,7 @@ Install SonarQube :
  https://www.coachdevops.com/2021/01/install-sonarqube-8-on-ubuntu-how-to.html        
           
                      	  
-    sudo apt-get update && sudo apt-get install default-jdk -y
+    1 sudo apt-get update && sudo apt-get install default-jdk -y
     2  sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main" >> /etc/apt/sources.list.d/pgdg.list'
     3  sudo wget -q https://www.postgresql.org/media/keys/ACCC4CF8.asc -O - | sudo apt-key add -
     4  sudo apt-get -y install postgresql postgresql-contrib
@@ -25,19 +25,18 @@ Install SonarQube :
     17  sudo systemctl start sonar
   
 Install Jenkins :
-   1 wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
-   2 sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
-   3 sudo apt-get update
-   4 sudo apt-get install jenkins
-   5 sudo systemctl status jenkins
+        1 wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
+        2 sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
+        3 sudo apt-get update
+        4 sudo apt-get install jenkins
+        5 sudo systemctl status jenkins
 
 Install Maven :
-   1 cd /opt/
-   2 sudo wget https://dlcdn.apache.org/maven/maven-3/3.8.3/binaries/apache-maven-3.8.3-bin.tar.gz
-   3 sudo tar -xf apache-maven-3.8.3-bin.tar.gz
-   4 sudo mv apache-maven-3.8.3/ apache-maven/
-
-sudo update-alternatives --install /usr/bin/mvn maven /opt/apache-maven/bin/mvn 1001
+        1 cd /opt/
+        2 sudo wget https://dlcdn.apache.org/maven/maven-3/3.8.3/binaries/apache-maven-3.8.3-bin.tar.gz
+        3 sudo tar -xf apache-maven-3.8.3-bin.tar.gz
+        4 sudo mv apache-maven-3.8.3/ apache-maven/
+        5 sudo update-alternatives --install /usr/bin/mvn maven /opt/apache-maven/bin/mvn 1001
 
 Configuring Apache Maven Environment
 ------------------
